@@ -24,18 +24,20 @@ public class UserController {
         return userService.getUserByUserid(userid);
     }
     @PostMapping("")
-    public User registUser(
-            @RequestParam Integer userid,
-            @RequestParam String username) {
+    public User registUser(@ModelAttribute User user) {
+        System.out.println(user);
 
-        return userService.registUser(userid, username);
+        return userService.registUser(
+                user.getUserid(), user.getUsername());
     }
     @PutMapping("")
-    public User modifyUser() {
-        return null;
+    public User modifyUser(@ModelAttribute User user) {
+        userService.modifyUser(user);
+        return user;
     }
-    @DeleteMapping("")
-    public User removeUser() {
-        return null;
+    @DeleteMapping("/{userid}")
+    public String removeUser(@PathVariable Integer userid) {
+        userService.removeUser(userid);
+        return userid + "번 사용자 삭제됨";
     }
 }

@@ -1,11 +1,8 @@
 package kr.re.kitri.restapp.model;
 
-import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 public class User {
 
     public static List<User> users;
@@ -26,5 +23,27 @@ public class User {
         this.username = username;
     }
 
+    public Integer getUserid() {
+        return userid;
+    }
 
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userid=" + userid +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }
