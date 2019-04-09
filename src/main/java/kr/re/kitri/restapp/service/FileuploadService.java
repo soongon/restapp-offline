@@ -2,6 +2,8 @@ package kr.re.kitri.restapp.service;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 public interface FileuploadService {
-    String doUplad(MultipartFile file);
+    void doUplad(MultipartFile file) throws IOException;
 }

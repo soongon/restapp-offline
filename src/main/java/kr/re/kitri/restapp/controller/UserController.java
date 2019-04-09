@@ -1,11 +1,10 @@
 package kr.re.kitri.restapp.controller;
 
 import kr.re.kitri.restapp.model.User;
-import kr.re.kitri.restapp.service.UserService;
+import kr.re.kitri.restapp.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -13,7 +12,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @GetMapping("")
     public List<User> getAllUsers() {
