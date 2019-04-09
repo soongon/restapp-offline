@@ -24,14 +24,14 @@ public class UserController {
         return userService.getUserByUserid(userid);
     }
     @PostMapping("")
-    public User registUser(@ModelAttribute User user) {
+    public User registUser(@RequestBody User user) {
         System.out.println(user);
 
         return userService.registUser(
                 user.getUserid(), user.getUsername());
     }
     @PutMapping("")
-    public User modifyUser(@ModelAttribute User user) {
+    public User modifyUser(User user) {
         userService.modifyUser(user);
         return user;
     }
