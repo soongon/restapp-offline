@@ -9,6 +9,8 @@ import java.util.List;
 @Service
 public class UserService {
 
+
+
     public List<User> getAllUsers() {
         System.out.println("서비스 getAllUsers 호출됨");
 
@@ -28,5 +30,11 @@ public class UserService {
 //            }
 //        }
 //        return new User(0, "no user");
+    }
+
+    public User registUser(Integer userid, String username) {
+        User user = new User(userid, username);
+        User.users.add(user);
+        return user;
     }
 }

@@ -24,8 +24,11 @@ public class UserController {
         return userService.getUserByUserid(userid);
     }
     @PostMapping("")
-    public User registUser() {
-        return null;
+    public User registUser(
+            @RequestParam Integer userid,
+            @RequestParam String username) {
+
+        return userService.registUser(userid, username);
     }
     @PutMapping("")
     public User modifyUser() {
