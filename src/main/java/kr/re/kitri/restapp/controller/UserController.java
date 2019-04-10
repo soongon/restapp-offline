@@ -1,5 +1,6 @@
 package kr.re.kitri.restapp.controller;
 
+import kr.re.kitri.restapp.annotation.TokenRequired;
 import kr.re.kitri.restapp.model.User;
 import kr.re.kitri.restapp.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +15,17 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+    @TokenRequired
     @GetMapping("")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
+
     @GetMapping("/{userid}")
     public User getUserByUserid(@PathVariable("userid") Integer userid) {
         return userService.getUserByUserid(userid);
     }
+
     @PostMapping("")
     public User registUser(@RequestBody User user) {
         System.out.println(user);
@@ -29,11 +33,13 @@ public class UserController {
         return userService.registUser(
                 user.getUserid(), user.getUsername());
     }
+
     @PutMapping("")
     public User modifyUser(User user) {
         userService.modifyUser(user);
         return user;
     }
+
     @DeleteMapping("/{userid}")
     public String removeUser(@PathVariable Integer userid) {
         userService.removeUser(userid);

@@ -21,7 +21,8 @@ public class HomeController {
     private SecurityService securityService;
 
     @PostMapping("upload")
-    public Map<String, Object> uploadFile(@RequestParam MultipartFile file) throws IOException {
+    public Map<String, Object> uploadFile(
+            @RequestParam MultipartFile file) throws IOException {
 
         fileuploadService.doUplad(file);
 
@@ -43,7 +44,8 @@ public class HomeController {
     }
 
     @GetMapping("security/get/subject")
-    public Map<String, Object> getSubject(@RequestParam("token") String token) {
+    public Map<String, Object> getSubject(
+            @RequestParam("token") String token) {
         String subject = securityService.getSubject(token);
         Map<String, Object> map = new HashMap<>();
         map.put("result", subject);
