@@ -3,7 +3,7 @@ package kr.re.kitri.restapp.advice;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import kr.re.kitri.restapp.annotation.TokenRequired;
-import kr.re.kitri.restapp.service.SecurityServiceImpl;
+import kr.re.kitri.restapp.service.SecrityServiceImpl;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -31,7 +31,7 @@ public class SecurityAspect {
         }
         Claims claims = Jwts.parser().setSigningKey(
                 DatatypeConverter.parseBase64Binary(
-                        SecurityServiceImpl.secretKey))
+                        SecrityServiceImpl.secretKey))
                 .parseClaimsJws(tokenInHeader).getBody();
         if(claims == null || claims.getSubject() == null) {
             throw new IllegalArgumentException("Token Error : Claim is null");

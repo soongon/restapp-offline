@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Service
 public class SecrityServiceImpl implements SecurityService {
-    private static final String secretKey= "4C8kum4LxyKWYLM78sKdXrzbBjDCFyfX";
+    public static final String secretKey= "4C8kum4LxyKWYLM78sKdXrzbBjDCFyfX";
 
     @Override
     public String generateToken(String subject, Long ttlMillis) {
